@@ -7,387 +7,43 @@
 <title>千禧 · 東方千禧風</title>
 
 <style>
-
-/* =========================
-   GLOBAL
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#ebe3d6;
-    color:#1e1e1e;
-    font-family:
-    "PingFang TC",
-    "Noto Sans TC",
-    sans-serif;
-
-    overflow-x:hidden;
-}
-
-/* =========================
-   ATMOSPHERE
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background:
-    radial-gradient(circle at 20% 20%,
-    rgba(109,31,31,0.08),
-    transparent 40%),
-
-    radial-gradient(circle at 80% 70%,
-    rgba(0,0,0,0.06),
-    transparent 45%),
-
-    radial-gradient(circle at center,
-    rgba(255,255,255,0.28),
-    transparent 60%);
-
-    pointer-events:none;
-    z-index:-1;
-}
-
-/* =========================
-   NAV
-========================= */
-
-nav{
-    position:fixed;
-    top:30px;
-    left:40px;
-    z-index:100;
-}
-
-nav a{
-    display:block;
-    margin-bottom:10px;
-
-    color:#2a2a2a;
-    text-decoration:none;
-
-    font-size:12px;
-    letter-spacing:2px;
-
-    transition:0.4s;
-}
-
-nav a:hover{
-    color:#7d2f2f;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    height:100vh;
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    overflow:hidden;
-}
-
-/* 背景 */
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-
-    linear-gradient(
-    rgba(235,227,214,0.55),
-    rgba(235,227,214,0.88)
-    ),
-
-    url('https://images.unsplash.com/photo-1504274066651-8d31a536b11a?q=80&w=1800&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
-
-    filter:
-    grayscale(10%)
-    contrast(1.05)
-    brightness(0.92);
-
-    transform:scale(1.04);
-}
-
-/* 光場 */
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(125,47,47,0.15),
-    transparent 60%);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-}
-
-.hero h1{
-    font-size:110px;
-    font-weight:200;
-    letter-spacing:28px;
-
-    color:#1f1f1f;
-}
-
-.hero p{
-    margin-top:20px;
-
-    font-size:12px;
-    letter-spacing:5px;
-
-    color:#555;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-section{
-    min-height:100vh;
-    padding:140px 14%;
-    position:relative;
-}
-
-/* 空間軸線 */
-
-section::before{
-    content:"";
-    position:absolute;
-
-    left:7%;
-    top:0;
-
-    width:1px;
-    height:100%;
-
-    background:
-    linear-gradient(
-    transparent,
-    rgba(125,47,47,0.2),
-    transparent
-    );
-}
-
-.label{
-    font-size:11px;
-    letter-spacing:4px;
-    color:#888;
-}
-
-h2{
-    margin-top:20px;
-
-    font-size:30px;
-    font-weight:300;
-
-    color:#7d2f2f;
-}
-
-.divider{
-    width:60px;
-    height:1px;
-
-    background:#b79d75;
-
-    margin:34px 0;
-}
-
-.cn{
-    font-size:15px;
-    line-height:2.5;
-    color:#2d2d2d;
-}
-
-.en{
-    margin-top:18px;
-
-    font-size:12px;
-    line-height:2.2;
-
-    color:#777;
-}
-
-/* =========================
-   IMAGE BLOCK
-========================= */
-
-.image-block{
-    margin-top:50px;
-
-    height:520px;
-    overflow:hidden;
-
-    position:relative;
-}
-
-/* 圖片 */
-
-.image-block img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    filter:
-    contrast(1.05)
-    grayscale(8%)
-    brightness(0.95);
-
-    transform:scale(1.03);
-
-    transition:1s;
-}
-
-.image-block:hover img{
-    transform:scale(1.06);
-}
-
-/* 霧 */
-
-.image-block::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(
-    rgba(235,227,214,0.08),
-    rgba(235,227,214,0.25)
-    );
-}
-
-/* =========================
-   WORK GRID
-========================= */
-
-.grid{
-    margin-top:70px;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-}
-
-.card{
-    height:480px;
-    overflow:hidden;
-    position:relative;
-}
-
-.card img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:1s;
-
-    filter:
-    contrast(1.05)
-    grayscale(5%);
-}
-
-.card:hover img{
-    transform:scale(1.06);
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact{
-    margin-top:40px;
-
-    font-size:15px;
-    line-height:2.4;
-}
-
-.contact a{
-    color:#2a2a2a;
-    text-decoration:none;
-}
-
-.contact a:hover{
-    color:#7d2f2f;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:120px;
-    text-align:center;
-
-    font-size:11px;
-    letter-spacing:3px;
-
-    color:#888;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-.hero h1{
-    font-size:64px;
-    letter-spacing:14px;
-}
-
-section{
-    padding:100px 10%;
-}
-
-.grid{
-    grid-template-columns:1fr;
-}
-
-.card{
-    height:360px;
-}
-
-.image-block{
-    height:320px;
-}
-
-}
-
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ background:#ebe3d6; color:#1e1e1e; font-family:"PingFang TC","Noto Sans TC",sans-serif; overflow-x:hidden; }
+body::before{ content:""; position:fixed; inset:0; background: radial-gradient(circle at 20% 20%, rgba(109,31,31,0.08), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0,0,0,0.06), transparent 45%), radial-gradient(circle at center, rgba(255,255,255,0.28), transparent 60%); pointer-events:none; z-index:-1; }
+nav{ position:fixed; top:30px; left:40px; z-index:100; }
+nav a{ display:block; margin-bottom:10px; color:#2a2a2a; text-decoration:none; font-size:12px; letter-spacing:2px; transition:0.4s; }
+nav a:hover{ color:#7d2f2f; }
+.hero{ height:100vh; position:relative; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
+.hero::before{ content:""; position:absolute; inset:0; background: linear-gradient(rgba(235,227,214,0.55), rgba(235,227,214,0.88)), url('1.JPG'); background-size:cover; background-position:center; filter: grayscale(10%) contrast(1.05) brightness(0.92); transform:scale(1.04); }
+.hero::after{ content:""; position:absolute; inset:0; background: radial-gradient(circle at center, rgba(125,47,47,0.15), transparent 60%); }
+.hero-content{ position:relative; z-index:2; }
+.hero h1{ font-size:110px; font-weight:200; letter-spacing:28px; color:#1f1f1f; }
+.hero p{ margin-top:20px; font-size:12px; letter-spacing:5px; color:#555; }
+section{ min-height:100vh; padding:140px 14%; position:relative; }
+section::before{ content:""; position:absolute; left:7%; top:0; width:1px; height:100%; background: linear-gradient(transparent, rgba(125,47,47,0.2), transparent); }
+.label{ font-size:11px; letter-spacing:4px; color:#888; }
+h2{ margin-top:20px; font-size:30px; font-weight:300; color:#7d2f2f; }
+.divider{ width:60px; height:1px; background:#b79d75; margin:34px 0; }
+.cn{ font-size:15px; line-height:2.5; color:#2d2d2d; }
+.en{ margin-top:18px; font-size:12px; line-height:2.2; color:#777; }
+.image-block{ margin-top:50px; height:520px; overflow:hidden; position:relative; }
+.image-block img{ width:100%; height:100%; object-fit:cover; filter: contrast(1.05) grayscale(8%) brightness(0.95); transform:scale(1.03); transition:1s; }
+.image-block:hover img{ transform:scale(1.06); }
+.image-block::after{ content:""; position:absolute; inset:0; background: linear-gradient(rgba(235,227,214,0.08), rgba(235,227,214,0.25)); }
+.grid{ margin-top:70px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.card{ height:480px; overflow:hidden; position:relative; }
+.card img{ width:100%; height:100%; object-fit:cover; transition:1s; filter: contrast(1.05) grayscale(5%); }
+.card:hover img{ transform:scale(1.06); }
+.contact{ margin-top:40px; font-size:15px; line-height:2.4; }
+.contact a{ color:#2a2a2a; text-decoration:none; }
+.contact a:hover{ color:#7d2f2f; }
+footer{ padding:120px; text-align:center; font-size:11px; letter-spacing:3px; color:#888; }
+@media(max-width:900px){ .hero h1{ font-size:64px; letter-spacing:14px; } section{ padding:100px 10%; } .grid{ grid-template-columns:1fr; } .card{ height:360px; } .image-block{ height:320px; } }
 </style>
 </head>
 
 <body>
-
-<!-- NAV -->
 
 <nav>
 <a href="#home">HOME</a>
@@ -396,224 +52,83 @@ section{
 <a href="#contact">CONTACT</a>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero" id="home">
-
 <div class="hero-content">
-
 <h1>千禧</h1>
-
-<p>
-東方千禧風 · ORIENTAL MILLENNIUM SYSTEM
-</p>
-
+<p>東方千禧風 · ORIENTAL MILLENNIUM SYSTEM</p>
 </div>
-
 </section>
-
-<!-- CONCEPT -->
 
 <section id="concept">
-
-<div class="label">
-01 / CONCEPT
-</div>
-
-<h2>
-東方文化的重新建構
-</h2>
-
+<div class="label">01 / CONCEPT</div>
+<h2>東方文化的重新建構</h2>
 <div class="divider"></div>
-
 <div class="cn">
-
 我不希望刺青只是風格模仿。<br><br>
-
-對我來說，
-刺青更像是一種文化語言。<br><br>
-
-我嘗試將東方工筆、重彩、
-寺院空間、傳統紋樣與現代構圖重新結合，
-建立屬於自己的視覺系統。<br><br>
-
-這不是復古，
-而是在重新理解東方美學之後，
-對當代刺青的一次重新建構。
-
+對我來說，刺青更像是一種文化語言。<br><br>
+我嘗試將東方工筆、重彩、寺院空間、傳統紋樣與現代構圖重新結合，建立屬於自己的視覺系統。<br><br>
+這不是復古，而是在重新理解東方美學之後，對當代刺青的一次重新建構。
 </div>
-
 <div class="en">
-
 I never wanted tattoo to become style imitation.<br><br>
-
-For me,
-tattoo is a cultural language.<br><br>
-
-I combine Eastern fine-line painting,
-heavy color composition,
-traditional patterns,
-temple spatial aesthetics
-and contemporary structures
-to build my own visual system.<br><br>
-
-This is not nostalgia,
-but a reconstruction of Eastern aesthetics
-within contemporary tattoo culture.
-
+For me, tattoo is a cultural language.<br><br>
+I combine Eastern fine-line painting, heavy color composition, traditional patterns, temple spatial aesthetics and contemporary structures to build my own visual system.<br><br>
+This is not nostalgia, but a reconstruction of Eastern aesthetics within contemporary tattoo culture.
 </div>
-
-<!-- 華林寺 / 西禪寺 / 京都寺院氛圍圖 -->
 <div class="image-block">
-
-<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1800&auto=format&fit=crop">
-
+<img src="2.jpeg">
 </div>
-
 </section>
-
-<!-- VISUAL SYSTEM -->
 
 <section>
-
-<div class="label">
-02 / VISUAL SYSTEM
-</div>
-
-<h2>
-東方千禧風
-</h2>
-
+<div class="label">02 / VISUAL SYSTEM</div>
+<h2>東方千禧風</h2>
 <div class="divider"></div>
-
 <div class="cn">
-
 東方千禧風並不是單一風格。<br><br>
-
-它建立在東方文化的空間感、
-重彩秩序與工筆線條之上，
-同時融入當代刺青的視覺張力。<br><br>
-
-我希望它既保留東方氣質，
-又能成為屬於這個時代的新視覺語言。
-
+它建立在東方文化的空間感、重彩秩序與工筆線條之上，同時融入當代刺青的視覺張力。<br><br>
+我希望它既保留東方氣質，又能成為屬於這個時代的新視覺語言。
 </div>
-
 <div class="en">
-
 Oriental Millennium is not a single style.<br><br>
-
-It is built upon Eastern spatial aesthetics,
-heavy color structures
-and fine-line systems,
-while integrating contemporary visual tension.<br><br>
-
-I hope it preserves Eastern identity
-while becoming a new visual language
-for the current era.
-
+It is built upon Eastern spatial aesthetics, heavy color structures and fine-line systems, while integrating contemporary visual tension.<br><br>
+I hope it preserves Eastern identity while becoming a new visual language for the current era.
 </div>
-
 <div class="image-block">
-
-<img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?q=80&w=1800&auto=format&fit=crop">
-
+<img src="3.jpeg">
 </div>
-
 </section>
-
-<!-- WORKS -->
 
 <section id="works">
-
-<div class="label">
-03 / VISUAL ARCHIVE
-</div>
-
-<h2>
-作品檔案
-</h2>
-
+<div class="label">03 / VISUAL ARCHIVE</div>
+<h2>作品檔案</h2>
 <div class="divider"></div>
-
-<div class="cn">
-作品不是展示，
-而是我對東方視覺秩序的持續探索。
-</div>
-
+<div class="cn">作品不是展示，內含我對東方視覺秩序的持續探索。</div>
 <div class="grid">
-
-<!-- 你後面替換成自己的作品 -->
-
-<div class="card">
-<img src="https://picsum.photos/900/1200?1">
+<div class="card"><img src="4.jpg"></div>
+<div class="card"><img src="5.JPG"></div>
+<div class="card"><img src="6.jpeg"></div>
+<div class="card"><img src="7.jpeg"></div>
+<div class="card"><img src="8.jpeg"></div>
+<div class="card"><img src="9.JPG"></div>
+<div class="card"><img src="10.JPG"></div>
+<div class="card"><img src="11.jpeg"></div>
+<div class="card"><img src="12.jpeg"></div>
 </div>
-
-<div class="card">
-<img src="https://picsum.photos/900/1200?2">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/900/1200?3">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/900/1200?4">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/900/1200?5">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/900/1200?6">
-</div>
-
-</div>
-
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact">
-
-<div class="label">
-04 / CONTACT
-</div>
-
-<h2>
-聯絡方式
-</h2>
-
+<div class="label">04 / CONTACT</div>
+<h2>聯絡方式</h2>
 <div class="divider"></div>
-
 <div class="contact">
-
-<a href="https://instagram.com/tattooist_qianxi" target="_blank">
-Instagram · @tattooist_qianxi
-</a>
-
-<br>
-
-<a href="mailto:casttococinas588@gmail.com">
-casttococinas588@gmail.com
-</a>
-
+<a href="https://instagram.com/tattooist_qianxi" target="_blank">Instagram · @tattooist_qianxi</a><br>
+<a href="mailto:casttococinas588@gmail.com">casttococinas588@gmail.com</a>
 </div>
-
-<div class="en" style="margin-top:30px;">
-
-Available for selected projects & collaborations.
-
-</div>
-
+<div class="en" style="margin-top:30px;">Available for selected projects & collaborations.</div>
 </section>
 
-<footer>
-
-© MILLENNIUM · ORIENTAL MILLENNIUM SYSTEM
-
-</footer>
+<footer>© MILLENNIUM · ORIENTAL MILLENNIUM SYSTEM</footer>
 
 </body>
 </html>
